@@ -47,6 +47,9 @@ flutter:
     - assets/logo2.svg
     - assets/mail1.svg
     - assets/twitter1.svg
+    - assets/google2.svg
+    - assets/facebook2.svg
+    - assets/twitter2.svg
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -8,10 +8,51 @@ class Screen2 extends StatefulWidget {
 class _Screen2State extends State<Screen2> {
   double loginW = 70;
   double signW = 0;
+  String current = "LOGIN";
+  void Login(String mail, String password) {
+    // do every thimg here to impliment the login
+  }
+  void SignUp(String mail, String password, String username) {
+    // do every thimg here to impliment the login
+  }
+  void facebook() {
+    // do every thimg here to impliment the login
+  }
+  void google() {
+    // do every thimg here to impliment the login
+  }
+  void twitter() {
+    // do every thimg here to impliment the login
+  }
+  void TermsAndConditions() {
+    // do every thimg here to impliment the login
+  }
+  TextEditingController _mail;
+  TextEditingController _pass;
+  TextEditingController _username;
+  @override
+  void initState() {
+    // TODO: implement initState
+    _mail = new TextEditingController();
+    _pass = new TextEditingController();
+    _username = new TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _mail.dispose();
+    _pass.dispose();
+    _username.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             Container(
@@ -45,7 +86,7 @@ class _Screen2State extends State<Screen2> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: const EdgeInsets.fromLTRB(18.0, 18, 18, 0),
                     child: Stack(
                       children: [
                         Container(
@@ -62,6 +103,7 @@ class _Screen2State extends State<Screen2> {
                                           setState(() {
                                             loginW = 70;
                                             signW = 0;
+                                            current = "LOGIN";
                                           });
                                         },
                                         child: Text(
@@ -90,6 +132,7 @@ class _Screen2State extends State<Screen2> {
                                           setState(() {
                                             loginW = 0;
                                             signW = 70;
+                                            current = "SIGNUP";
                                           });
                                         },
                                         child: Text(
@@ -113,10 +156,129 @@ class _Screen2State extends State<Screen2> {
                                   ),
                                 ],
                               ),
+                              Container(
+                                child: Column(
+                                  children: [
+                                    current != "LOGIN"
+                                        ? Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                              30,
+                                              15,
+                                              30,
+                                              0,
+                                            ),
+                                            child: TextField(
+                                              controller: _username,
+                                              cursorColor: Color(0xff4E54C8),
+                                              decoration: InputDecoration(
+                                                hintText: "Username",
+                                                prefixIcon: Icon(
+                                                  Icons.perm_identity,
+                                                  color: Color(0xff4E54C8),
+                                                ),
+                                                focusColor: Color(0xff4E54C8),
+                                                fillColor: Colors.white,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xff4E54C8),
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                border: OutlineInputBorder(),
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            height: 20,
+                                          ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        30,
+                                        15,
+                                        30,
+                                        0,
+                                      ),
+                                      child: TextField(
+                                        controller: _mail,
+                                        cursorColor: Color(0xff4E54C8),
+                                        decoration: InputDecoration(
+                                          hintText: "Email Address",
+                                          prefixIcon: Icon(
+                                            Icons.mail_outline,
+                                            color: Color(0xff4E54C8),
+                                          ),
+                                          focusColor: Color(0xff4E54C8),
+                                          fillColor: Colors.white,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0xff4E54C8),
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          border: OutlineInputBorder(),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        30,
+                                        15,
+                                        30,
+                                        0,
+                                      ),
+                                      child: TextField(
+                                        controller: _pass,
+                                        cursorColor: Color(0xff4E54C8),
+                                        decoration: InputDecoration(
+                                          hintText: "Password",
+                                          prefixIcon: Icon(
+                                            Icons.lock_outline,
+                                            color: Color(0xff4E54C8),
+                                          ),
+                                          focusColor: Color(0xff4E54C8),
+                                          fillColor: Colors.white,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0xff4E54C8),
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          border: OutlineInputBorder(),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                    ),
+                                    Center(
+                                      child: Container(
+                                        width: double.infinity,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "By pressing 'submit' you agree",
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                TermsAndConditions();
+                                              },
+                                              child:
+                                                  Text("Terms and Conditions"),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
                           width: double.infinity,
-                          height: Get.height * .4,
+                          height: Get.height * .5,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             color: const Color(0xffffffff),
@@ -132,7 +294,7 @@ class _Screen2State extends State<Screen2> {
                         Column(
                           children: [
                             Container(
-                              height: Get.height * .4 - 40,
+                              height: (Get.height * .5) - 40,
                               width: double.infinity,
                             ),
                             Container(
@@ -153,7 +315,31 @@ class _Screen2State extends State<Screen2> {
                               child: Center(
                                 child: Container(
                                   child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      if (current == "LOGIN") {
+                                        if (_mail.text == "" ||
+                                            _pass.text == "") {
+                                          Get.snackbar(
+                                            "Fill it!",
+                                            "Every Feld needs to be filled",
+                                          );
+                                        } else {
+                                          Login(_mail.text, _pass.text);
+                                        }
+                                      } else {
+                                        if (_mail.text == "" ||
+                                            _pass.text == "" ||
+                                            _username.text == "") {
+                                          Get.snackbar(
+                                            "Fill it!",
+                                            "Every Feld needs to be filled",
+                                          );
+                                        } else {
+                                          SignUp(_mail.text, _pass.text,
+                                              _username.text);
+                                        }
+                                      }
+                                    },
                                     icon: Icon(Icons.arrow_forward,
                                         color: Colors.white),
                                   ),
@@ -179,6 +365,90 @@ class _Screen2State extends State<Screen2> {
                           ],
                         )
                       ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              google();
+                            },
+                            child: Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SvgPicture.asset("assets/google2.svg"),
+                              ),
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x338f94fb),
+                                    offset: Offset(0, 13),
+                                    blurRadius: 30,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              facebook();
+                            },
+                            child: Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SvgPicture.asset("assets/facebook2.svg"),
+                              ),
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x338f94fb),
+                                    offset: Offset(0, 13),
+                                    blurRadius: 30,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              twitter();
+                            },
+                            child: Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: SvgPicture.asset("assets/twitter2.svg"),
+                              ),
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.elliptical(9999.0, 9999.0)),
+                                color: const Color(0xffffffff),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x338f94fb),
+                                    offset: Offset(0, 13),
+                                    blurRadius: 30,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],
