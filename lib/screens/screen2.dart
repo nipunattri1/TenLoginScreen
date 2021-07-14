@@ -9,10 +9,10 @@ class _Screen2State extends State<Screen2> {
   double loginW = 70;
   double signW = 0;
   String current = "LOGIN";
-  void Login(String mail, String password) {
+  void login(String mail, String password) {
     // do every thimg here to impliment the login
   }
-  void SignUp(String mail, String password, String username) {
+  void signup(String mail, String password, String username) {
     // do every thimg here to impliment the login
   }
   void facebook() {
@@ -24,7 +24,7 @@ class _Screen2State extends State<Screen2> {
   void twitter() {
     // do every thimg here to impliment the login
   }
-  void TermsAndConditions() {
+  void termsandconditions() {
     // do every thimg here to impliment the login
   }
   TextEditingController _mail;
@@ -32,7 +32,6 @@ class _Screen2State extends State<Screen2> {
   TextEditingController _username;
   @override
   void initState() {
-    // TODO: implement initState
     _mail = new TextEditingController();
     _pass = new TextEditingController();
     _username = new TextEditingController();
@@ -41,7 +40,6 @@ class _Screen2State extends State<Screen2> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _mail.dispose();
     _pass.dispose();
     _username.dispose();
@@ -56,8 +54,8 @@ class _Screen2State extends State<Screen2> {
         body: Stack(
           children: [
             Container(
-              height: Get.height * .4,
-              width: Get.width,
+              height: MediaQuery.of(context).size.height * .4,
+              width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -70,12 +68,12 @@ class _Screen2State extends State<Screen2> {
               ),
             ),
             Container(
-              width: Get.width,
-              height: Get.height,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
               child: Column(
                 children: [
                   SizedBox(
-                    height: Get.height * .25,
+                    height: MediaQuery.of(context).size.height * .25,
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: SvgPicture.asset(
@@ -263,7 +261,7 @@ class _Screen2State extends State<Screen2> {
                                             ),
                                             TextButton(
                                               onPressed: () {
-                                                TermsAndConditions();
+                                                termsandconditions();
                                               },
                                               child:
                                                   Text("Terms and Conditions"),
@@ -278,7 +276,7 @@ class _Screen2State extends State<Screen2> {
                             ],
                           ),
                           width: double.infinity,
-                          height: Get.height * .5,
+                          height: MediaQuery.of(context).size.height * .5,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             color: const Color(0xffffffff),
@@ -294,7 +292,9 @@ class _Screen2State extends State<Screen2> {
                         Column(
                           children: [
                             Container(
-                              height: (Get.height * .5) - 40,
+                              height:
+                                  (MediaQuery.of(context).size.height * .5) -
+                                      40,
                               width: double.infinity,
                             ),
                             Container(
@@ -324,7 +324,7 @@ class _Screen2State extends State<Screen2> {
                                             "Every Feld needs to be filled",
                                           );
                                         } else {
-                                          Login(_mail.text, _pass.text);
+                                          login(_mail.text, _pass.text);
                                         }
                                       } else {
                                         if (_mail.text == "" ||
@@ -335,7 +335,7 @@ class _Screen2State extends State<Screen2> {
                                             "Every Feld needs to be filled",
                                           );
                                         } else {
-                                          SignUp(_mail.text, _pass.text,
+                                          signup(_mail.text, _pass.text,
                                               _username.text);
                                         }
                                       }

@@ -10,10 +10,10 @@ class _Screen1State extends State<Screen1> with TickerProviderStateMixin {
   // but i have help for you see these functions
   // here you an impliment login regiter or more
   // quite easily
-  void Login(String mail, String password) {
+  void login(String mail, String password) {
     // do what ever you want to do here
   }
-  void Signup(String mail, String password, String passwordConfirm) {
+  void signup(String mail, String password, String passwordConfirm) {
     if (password == passwordConfirm) {
       // do what ever you want to do here
       // [password] is your password and [mail] is mail. be happy
@@ -369,7 +369,7 @@ class _Screen1State extends State<Screen1> with TickerProviderStateMixin {
                         ),
                       ),
                       onPressed: () {
-                        Login(_lmail.text, _lpass.text);
+                        login(_lmail.text, _lpass.text);
                       },
                     ),
                   ),
@@ -570,7 +570,7 @@ class _Screen1State extends State<Screen1> with TickerProviderStateMixin {
                         ),
                       ),
                       onPressed: () {
-                        Signup(_rmail.text, _rpass.text, _rpass2.text);
+                        signup(_rmail.text, _rpass.text, _rpass2.text);
                       },
                     ),
                   ),

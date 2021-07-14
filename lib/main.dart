@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: Screen2(),
+      home: Screen3(),
     );
   }
 }

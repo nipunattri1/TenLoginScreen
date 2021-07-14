@@ -50,6 +50,11 @@ flutter:
     - assets/google2.svg
     - assets/facebook2.svg
     - assets/twitter2.svg
+    - assets/background3.svg
+    - assets/dots 3/1.svg
+    - assets/dots 3/2.svg
+    - assets/dots 3/3.svg
+    - assets/dots 3/4.svg
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
